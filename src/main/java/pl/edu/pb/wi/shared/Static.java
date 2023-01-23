@@ -6,5 +6,6 @@ public final class Static {
     public final static Integer FONT_SIZE = 40;
     public final static Integer FRAME_HIGH = 725;
     public final static Integer FRAME_WIDTH = 600;
+    public final static String PATH = "C:\\Users\\fdraz\\Repositories\\Unolingo2";
 
 }

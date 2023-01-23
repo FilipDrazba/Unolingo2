@@ -14,8 +14,6 @@ import static pl.edu.pb.wi.shared.Static.FONT_SIZE;
 
 public class ClosedQuestionFrame extends JFrame {
 
-    private final JLabel amountOfPointsLabel;
-    private final JLabel contentLabel;
     private final ButtonGroup answerButtons = new ButtonGroup();
 
     public ClosedQuestionFrame(BoardFrame boardFrame,
@@ -27,11 +25,11 @@ public class ClosedQuestionFrame extends JFrame {
         setLayout(new GridLayout(thisQuestion.getAnswers().size() + 3, 1, 10, 10));
         setLocation(Static.FRAME_WIDTH, 0);
 
-        amountOfPointsLabel = new JLabel("Ilość punktów: " + amountOfPoints + "/5");
+        JLabel amountOfPointsLabel = new JLabel("Ilość punktów: " + amountOfPoints + "/5");
         amountOfPointsLabel.setFont(new Font(FONT, Font.PLAIN, FONT_SIZE));
         add(amountOfPointsLabel);
 
-        contentLabel = new JLabel("Przetłumacz \"" + thisQuestion.getContent() + "\" na język angielski:");
+        JLabel contentLabel = new JLabel("Przetłumacz \"" + thisQuestion.getContent() + "\" na język angielski:");
         contentLabel.setFont(new Font(FONT, Font.PLAIN, FONT_SIZE));
         add(contentLabel);
 

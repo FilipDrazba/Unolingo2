@@ -7,8 +7,8 @@ import java.util.List;
 
 @Getter
 public class ClosedQuestion extends Question {
-    private List<String> answers;
-    private Integer correctAnswer;
+    private final List<String> answers;
+    private final Integer correctAnswer;
 
     @Override
     public boolean checkAnswer(Object givenAnswer) {

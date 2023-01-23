@@ -1,6 +1,5 @@
 package pl.edu.pb.wi.model.question;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pl.edu.pb.wi.model.Prototype;
