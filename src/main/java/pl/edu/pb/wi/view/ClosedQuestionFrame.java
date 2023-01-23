@@ -18,7 +18,9 @@ public class ClosedQuestionFrame extends JFrame {
     private final JLabel contentLabel;
     private final ButtonGroup answerButtons = new ButtonGroup();
 
-    public ClosedQuestionFrame(List<Question> closedQuestions, double amountOfPoints) {
+    public ClosedQuestionFrame(BoardFrame boardFrame,
+                               List<Question> closedQuestions,
+                               double amountOfPoints) {
         super();
         ClosedQuestion thisQuestion = (ClosedQuestion) closedQuestions.get(0);
 
@@ -55,11 +57,17 @@ public class ClosedQuestionFrame extends JFrame {
                 }
 
                 closedQuestions.remove(thisQuestion);
-                if (!closedQuestions.isEmpty())
-                    new ClosedQuestionFrame(closedQuestions,
+                if (!closedQuestions.isEmpty()) {
+                    new ClosedQuestionFrame(boardFrame, closedQuestions,
                             thisQuestion.checkAnswer(Integer.parseInt(answerButtons.getSelection().getActionCommand()))
                                     ? amountOfPoints + thisQuestion.getPoint()
                                     : amountOfPoints);
+
+                } else {
+                    boardFrame.addAmountOfPoints(thisQuestion.checkAnswer(Integer.parseInt(answerButtons.getSelection().getActionCommand()))
+                            ? amountOfPoints + thisQuestion.getPoint()
+                            : amountOfPoints);
+                }
                 dispose();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Please select an answer first.");

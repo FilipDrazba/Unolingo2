@@ -7,7 +7,6 @@ import java.io.File;
 import java.util.*;
 
 public class Base implements IterableCollection<String> {
-    //TODO: Sprawdzić Singleton
     private static Base instance = null;
     private final HashMap<String, Collection<String>> closedQuestionsCollection;
     private final HashMap<String, Collection<String>> openQuestionRecordsCollection;
@@ -58,8 +57,6 @@ public class Base implements IterableCollection<String> {
 
     @Override
     public Iterator<String> createIterator(String key) {
-
-
         if(key.startsWith("1")){
             return createClosedQuestionRecordIterator(key);
         }else{

@@ -27,7 +27,5 @@ public abstract class Question implements Prototype {
     public abstract boolean checkAnswer(Object givenAnswer);
 
     @Override
-    public Prototype clone(){
-        return null;
-    }
+    public abstract Prototype clone();
 }

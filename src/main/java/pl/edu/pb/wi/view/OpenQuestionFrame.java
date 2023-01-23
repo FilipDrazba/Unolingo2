@@ -13,17 +13,19 @@ import static pl.edu.pb.wi.shared.Static.FONT;
 import static pl.edu.pb.wi.shared.Static.FONT_SIZE;
 
 public class OpenQuestionFrame extends JFrame {
-    public OpenQuestionFrame(List<Question> openQuestions, double amountOfPoints) {
+    public OpenQuestionFrame(BoardFrame boardFrame,
+                             List<Question> openQuestions,
+                             double amountOfPoints) {
         super();
         setLocation(Static.FRAME_WIDTH, 495);
         OpenQuestion thisQuestion = (OpenQuestion) openQuestions.iterator().next();
 
-        setLayout(new GridLayout( 3, 1, 10, 10));
+        setLayout(new GridLayout(3, 1, 10, 10));
         JLabel points = new JLabel("Ilość punktów: " + amountOfPoints + "/5");
         points.setFont(new Font(FONT, Font.PLAIN, FONT_SIZE));
         add(points);
 
-        JPanel jPanel=new JPanel();
+        JPanel jPanel = new JPanel();
 
         JLabel questionContent1 = new JLabel(thisQuestion.getContent());
         questionContent1.setFont(new Font(FONT, Font.PLAIN, FONT_SIZE));
@@ -52,10 +54,14 @@ public class OpenQuestionFrame extends JFrame {
                 }
                 openQuestions.remove(thisQuestion);
                 if (!openQuestions.isEmpty()) {
-                    new OpenQuestionFrame(openQuestions,
+                    new OpenQuestionFrame(boardFrame, openQuestions,
                             thisQuestion.checkAnswer(jTextField.getText())
                                     ? amountOfPoints + thisQuestion.getPoint()
                                     : amountOfPoints);
+                }else{
+                    boardFrame.addAmountOfPoints(thisQuestion.checkAnswer(jTextField.getText())
+                            ? amountOfPoints + thisQuestion.getPoint()
+                            : amountOfPoints);
                 }
                 dispose();
             } catch (IllegalArgumentException ex) {
