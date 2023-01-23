@@ -23,10 +23,9 @@ public class OpenQuestionFactory extends Creator {
         String recordFromFile = iterator.getNext();
         StringTokenizer stringTokenizer = new StringTokenizer(recordFromFile, ";");
 
-        String content1 = stringTokenizer.nextToken();
-        String content2 = stringTokenizer.nextToken();
+        String content = stringTokenizer.nextToken();
         String correctAnswer = stringTokenizer.nextToken();
 
-        return new OpenQuestion(content1, content2, correctAnswer);
+        return new OpenQuestion(content, correctAnswer);
     }
 }
